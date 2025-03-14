@@ -59,3 +59,9 @@ Implementar aplicaciones móviles innovadoras, eficientes y de alta capacidad cu
 - Windmill, E. (2020). Flutter In Action (B. Sawyer, S. Kline, J. Guthrie, A. Dragosavljevic, & A. Calcara, Eds.). Manning Publications Co. 
 - Zaccagnino, C. (2020). Programming Flutter: Native, Cross-Platform Apps The Easy Way (J. Kwityn, Ed.; First Edition). The Pragmatic Programmers, LLC.
 
+### Organización
+En este repositorio encontrarás:
+- **Ejemplos:** Ejemplos desarrollados en clases.
+- **Prácticas:** Enunciados para trabajo independiente.
+- **Laboratorios:** Trabajos a desarrollar en los laboratorios.
+- **Proyectos:** Enunciados para trabajo independiente tomados en cuenta como evaluaciones parciales.
