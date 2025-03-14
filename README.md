@@ -42,7 +42,7 @@ Implementar aplicaciones móviles innovadoras, eficientes y de alta capacidad cu
 - **Examen Final:** 30%
 
 ### Cronograma de Trabajo
-(./imagenes/inf632-cronograma.png)
+![Imagen del cronograma](./imagenes/inf632-cronograma.png)
 
 ### Bibliografía
 - Alessandria, S., & Kayfitz, B. (2021). Flutter cookbook: Over 100 Proven Techniques And Solutions For App Development With Flutter 2.2 and Dart (S. Editing, Ed.; First Edition). Packt Publishing Limited. 
@@ -56,7 +56,7 @@ Implementar aplicaciones móviles innovadoras, eficientes y de alta capacidad cu
 - Google. (2024b, marzo 13). Flutter Documentation. https://docs.flutter.dev/ 
 - Katz, M., Moore, K. D., Ngo, V., & Guzzi, V. (2021). Flutter Apprentice Learn To Build Cross-Platform Apps (S. Patterson, S. Grauschopf, & C. Rocchi, Eds.; Second Edition). Razeware LLC. 
 - Napoli, M. (2020). Beginning Flutter: A Hands On Guide To App Dvelopment (Z. Chawdhary, Ed.). John Wiley & Sons, Inc. 
-- Payne, R. (2019). Beginning App Development With Flutter: Create Cross-Platform Mobile Apps. En J. Markham (Ed.), Beginning App Development with Flutter: Create Cross-Platform Mobile Apps. Springer. https://doi.org/https://doi.org/10.1007/978-1-4842-5181-2 
+- Payne, R. (2019). Beginning App Development With Flutter: Create Cross-Platform Mobile Apps. En J. Markham (Ed.), Beginning App Development with Flutter: Create Cross-Platform Mobile Apps. Springer. https://doi.org/10.1007/978-1-4842-5181-2 
 - Windmill, E. (2020). Flutter In Action (B. Sawyer, S. Kline, J. Guthrie, A. Dragosavljevic, & A. Calcara, Eds.). Manning Publications Co. 
 - Zaccagnino, C. (2020). Programming Flutter: Native, Cross-Platform Apps The Easy Way (J. Kwityn, Ed.; First Edition). The Pragmatic Programmers, LLC.
 
