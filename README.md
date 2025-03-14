@@ -51,7 +51,6 @@ Implementar aplicaciones móviles innovadoras, eficientes y de alta capacidad cu
 - Bailey, T., & Biessek, A. (2021). Flutter For Beginners: An Introductory Guide To Building Cross-Platform Mobile Applications With Flutter 2.5 And Dart. (S. Editing, Ed.; Second Edition). Packt Publishing Limited. 
 - Carew, D. (2024, marzo 13). DartPad. https://github.com/dart-lang/dart-pad 
 - Cheng, F. (2019). Flutter Recipes: Movile Development Solutions For iOS And Android. En A. Black, J. Markham, & J. Vakili (Eds.), Flutter Recipes. Apress. 
-- Freitas, E. (2019). Flutter Succinctly (C. Wright, Ed.). Syncfusion, Inc. www.syncfusion.com. 
 - Google. (2024a, marzo 13). Dart Documentation. https://dart.dev/guides 
 - Google. (2024b, marzo 13). Flutter Documentation. https://docs.flutter.dev/ 
 - Katz, M., Moore, K. D., Ngo, V., & Guzzi, V. (2021). Flutter Apprentice Learn To Build Cross-Platform Apps (S. Patterson, S. Grauschopf, & C. Rocchi, Eds.; Second Edition). Razeware LLC. 
