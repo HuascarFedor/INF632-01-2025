@@ -1,0 +1,64 @@
+# Archivos generados por Flutter/Dart en cualquier proyecto
+**/.dart_tool/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Archivos de configuración de Android en cualquier proyecto
+**/android/.gradle/
+**/android/app/build/
+**/android/local.properties
+
+# Archivos de configuración de iOS en cualquier proyecto
+**/ios/Flutter/Flutter.podspec
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/ephemeral/
+
+# Archivos de configuración de Xcode en cualquier proyecto
+**/xcuserdata/
+**/DerivedData/
+**/*.pbxuser
+**/*.mode1v3
+**/*.mode2v3
+**/*.perspectivev3
+
+# Archivos de configuración de VS Code en cualquier proyecto
+**/.vscode/
+
+# Archivos de configuración de IntelliJ en cualquier proyecto
+**/.idea/
+**/*.iml
+
+# Archivos de configuración de paquetes en cualquier proyecto
+**/.pub-cache/
+
+# Archivos de construcción en cualquier proyecto
+**/build/
+
+# Archivos de configuración de MacOS
+.DS_Store
+
+# Archivos específicos de Linux
+**/linux/flutter/ephemeral/
+
+# Archivos específicos de Windows
+**/windows/flutter/ephemeral/
+
+# Archivos de web en cualquier proyecto
+**/web/.dart_tool/
+**/web/flutter/ephemeral/
+
+# Archivos de configuración de la aplicación
+**/.env
+**/.env.*
+
+# Archivos de Word
+**/*.doc
+**/*.docx
+
+# Archivos de Latex
+**/*.tex
