@@ -53,12 +53,17 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 30,
+                    backgroundImage: NetworkImage(
+                      'https://scontent.flpb1-2.fna.fbcdn.net/v/t39.30808-6/484986321_3807430236177685_2055885470494513844_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=f727a1&_nc_ohc=ZY1PcTIK9_gQ7kNvgH4kDIu&_nc_oc=Adlahv1Gi4bzhDGfW6cVFmvHl7ohmInKD5MPcfDSCUxXotP-53A6nTMfY5gHsOYJN_Q&_nc_zt=23&_nc_ht=scontent.flpb1-2.fna&_nc_gid=1Ugz-w7iMcaaMcUuepmHwg&oh=00_AYHoplTeWmmjBf9SccVthLJ0-3-twnwA68IQYG0E2vTpgA&oe=67F0D4F6',
+                    ),
+                    /*
                     backgroundColor: Colors.white,
                     child: Icon(
                       Icons.person,
                       size: 30,
                       color: Colors.blue,
                     ),
+                    */
                   ),
                   SizedBox(
                     height: 10,
