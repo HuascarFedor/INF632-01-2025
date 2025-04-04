@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout_app/botones.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,12 +23,8 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Basics App'),
-      ),
-      body: const Center(
-        child: Text('Hello, World!'),
-      ),
+      appBar: AppBar(title: const Text('Flutter Basics App')),
+      body: const Center(child: Text('Hello, World!')),
       drawer: Drawer(
         child: ListView(
           children: [
@@ -46,8 +43,8 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
                 borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(10),
-                    topRight: Radius.circular(10)),
+                  bottomRight: Radius.circular(30),
+                ),
               ),
               child: Column(
                 children: [
@@ -65,9 +62,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     */
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Text(
                     'Bienvenido',
                     style: TextStyle(
@@ -103,6 +98,28 @@ class MyHomePage extends StatelessWidget {
               onTap: () {
                 // Handle navigation to settings
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Botones Vertical'),
+              leading: const Icon(Icons.square),
+              trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Botones()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Botones Horizontal'),
+              leading: const Icon(Icons.square),
+              trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Botones()),
+                );
               },
             ),
           ],
