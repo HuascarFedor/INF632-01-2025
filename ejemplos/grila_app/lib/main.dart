@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Ejemplo de GridView')),
-        body: const Ejemplo4(),
+        appBar: AppBar(title: const Text('Ejemplo de GridView y ListView')),
+        body: const Ejemplo7(),
       ),
     );
   }
@@ -137,6 +137,110 @@ class Ejemplo4 extends StatelessWidget {
           leading: Icon(Icons.settings),
           title: Text('Configuracion'),
           subtitle: Text('Ajustes de la aplicacion'),
+        ),
+      ],
+    );
+  }
+}
+
+class Ejemplo5 extends StatelessWidget {
+  const Ejemplo5({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        return ListTile(
+          leading: Icon(Icons.map),
+          title: Text('Mapa'),
+          subtitle: Text('Abre el mapa'),
+        );
+      },
+      separatorBuilder:
+          (context, index) => Divider(color: Colors.grey, thickness: 1),
+      itemCount: 10,
+    );
+  }
+}
+
+class Ejemplo6 extends StatelessWidget {
+  const Ejemplo6({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 300,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          Container(
+            width: 150,
+            color: Colors.red,
+            child: const Center(child: Text('Elemento 1')),
+          ),
+          Container(
+            width: 150,
+            color: Colors.green,
+            child: const Center(child: Text('Elemento 2')),
+          ),
+          Container(
+            width: 150,
+            color: Colors.blue,
+            child: const Center(child: Text('Elemento 3')),
+          ),
+          Container(
+            width: 150,
+            color: Colors.yellow,
+            child: const Center(child: Text('Elemento 4')),
+          ),
+          Container(
+            width: 150,
+            color: Colors.purple,
+            child: const Center(child: Text('Elemento 5')),
+          ),
+          Container(
+            width: 150,
+            color: Colors.orange,
+            child: const Center(child: Text('Elemento 6')),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Ejemplo7 extends StatelessWidget {
+  const Ejemplo7({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        ExpansionTile(
+          title: Text('Primera categoria'),
+          children: [
+            ListTile(
+              title: Text('Elemento 1.1'),
+              subtitle: Text('Subtitulo 1.1.1'),
+            ),
+            ListTile(
+              title: Text('Elemento 1.2'),
+              subtitle: Text('Subtitulo 1.2.1'),
+            ),
+          ],
+        ),
+        ExpansionTile(
+          title: Text('Segunda categoria'),
+          children: [
+            ListTile(
+              title: Text('Elemento 2.1'),
+              subtitle: Text('Subtitulo 2.1.1'),
+            ),
+            ListTile(
+              title: Text('Elemento 2.2'),
+              subtitle: Text('Subtitulo 2.2.1'),
+            ),
+          ],
         ),
       ],
     );
