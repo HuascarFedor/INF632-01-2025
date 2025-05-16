@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/category_selector.dart';
 import '../widgets/dice_widget.dart';
+import '../widgets/score_table.dart';
 import '../models/game_model.dart';
 import '../utils/score_calculator.dart';
 
@@ -110,15 +111,54 @@ class _GameScreenState extends State<GameScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              DiceWidget(dice: dice, isLocked: isLocked, onTap: toggleLock),
-              ElevatedButton(
-                onPressed: rollDice,
-                child: Text('Lanzar dados($rollsLeft intentos)'),
-              ),
-              CategorySelector(
+              if (gameEnded)
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.emoji_events, color: Colors.amber, size: 80),
+                      SizedBox(height: 16),
+                      Text(
+                        'Juego Terminado!',
+                        style: Theme.of(
+                          context,
+                        ).textTheme.headlineMedium?.copyWith(
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        'Ganador: ${players[0].totalScore > players[1].totalScore
+                            ? 'Juagador 1'
+                            : players[1].totalScore > players[0].totalScore
+                            ? 'Jugador 2'
+                            : 'Empate'}',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              if (!gameEnded)
+                DiceWidget(dice: dice, isLocked: isLocked, onTap: toggleLock),
+              if (!gameEnded && !awaitingCategorySelection)
+                ElevatedButton(
+                  onPressed: rollDice,
+                  child: Text('Lanzar dados($rollsLeft intentos)'),
+                ),
+              if (!gameEnded && awaitingCategorySelection)
+                CategorySelector(
+                  categories: categories,
+                  scoreSheet: players[currentPlayer].scoreSheet,
+                  onSelectCategory: selectCategory,
+                ),
+              ScoreTable(
                 categories: categories,
-                scoreSheet: players[currentPlayer].scoreSheet,
-                onSelectCategory: selectCategory,
+                scoreSheet: [players[0].scoreSheet, players[1].scoreSheet],
               ),
             ],
           ),
