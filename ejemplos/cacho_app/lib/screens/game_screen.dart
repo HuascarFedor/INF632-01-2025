@@ -78,6 +78,10 @@ class _GameScreenState extends State<GameScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               DiceWidget(dice: dice, isLocked: isLocked, onTap: toggleLock),
+              ElevatedButton(
+                onPressed: rollDice,
+                child: Text('Lanzar dados($rollsLeft intentos)'),
+              ),
             ],
           ),
         ),
