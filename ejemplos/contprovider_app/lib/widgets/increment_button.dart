@@ -9,9 +9,17 @@ class IncrementButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counterModel = Provider.of<CounterModel>(context, listen: false);
-    return FloatingActionButton(
-      onPressed: counterModel.increment,
-      child: const Icon(Icons.add),
+    return Column(
+      children: [
+        IconButton(
+          onPressed: counterModel.increment,
+          icon: const Icon(Icons.add),
+        ),
+        IconButton(
+          onPressed: counterModel.decrement,
+          icon: const Icon(Icons.remove),
+        ),
+      ],
     );
   }
 }

@@ -10,8 +10,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Ejemplo de contador con Provider')),
-      body: const Center(child: CounterDisplay()),
-      floatingActionButton: IncrementButton(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [const Center(child: CounterDisplay()), IncrementButton()],
+      ),
     );
   }
 }
