@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planes_app/views/widgets/add_dialog.dart';
 import '../models/plan.dart';
 
 class PlanScreen extends StatefulWidget {
@@ -16,11 +17,28 @@ class _PlanScreenState extends State<PlanScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Manejo de Planes')),
       body: _buildList(),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _showAddPlanDialog(),
         tooltip: 'Agregar Plan',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
+    );
+  }
+
+  void _showAddPlanDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AddDialog(
+          title: "Agregar Nuevo Plan",
+          decoration: "Nombre del plan",
+          onAdd: (String text) {
+            setState(() {
+              _plans.add(Plan(name: text));
+            });
+          },
+        );
+      },
     );
   }
 
