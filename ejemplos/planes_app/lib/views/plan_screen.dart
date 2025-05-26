@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import '../models/plan.dart';
 
-class PlanScreen extends StatelessWidget {
+class PlanScreen extends StatefulWidget {
   const PlanScreen({super.key});
+
+  @override
+  State<PlanScreen> createState() => _PlanScreenState();
+}
+
+class _PlanScreenState extends State<PlanScreen> {
+  final List<Plan> _plans = [];
 
   @override
   Widget build(BuildContext context) {
@@ -17,34 +25,34 @@ class PlanScreen extends StatelessWidget {
   }
 
   Widget _buildList() {
-    return ListView(
-      children: <Widget>[
-        for (int i = 0; i < 5; i++) ...[
-          Container(
-            margin: const EdgeInsets.all(8.0),
-            padding: const EdgeInsets.all(8.0),
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.black26, width: 1.0),
-              ),
-            ),
-            child: ListTile(
-              title: Text(
-                'Plan ${i + 1}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18.0,
-                ),
-              ),
-              onTap: () {},
-              trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.delete, color: Colors.redAccent),
-              ),
+    return ListView.builder(
+      itemCount: _plans.length,
+      itemBuilder: (context, index) {
+        final plan = _plans[index];
+        return Container(
+          margin: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: Colors.black26, width: 1.0),
             ),
           ),
-        ],
-      ],
+          child: ListTile(
+            title: Text(
+              plan.name,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18.0,
+              ),
+            ),
+            onTap: () {},
+            trailing: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.delete, color: Colors.redAccent),
+            ),
+          ),
+        );
+      },
     );
   }
 }
