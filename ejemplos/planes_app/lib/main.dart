@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'plan_screen.dart';
+import 'views/plan_screen.dart';
 
 void main() => runApp(const PlanApp());
 
