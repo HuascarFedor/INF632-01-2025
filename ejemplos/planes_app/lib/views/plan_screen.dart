@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planes_app/views/widgets/add_dialog.dart';
+import 'package:planes_app/views/widgets/delete_dialog.dart';
 import '../models/plan.dart';
 
 class PlanScreen extends StatefulWidget {
@@ -65,10 +66,27 @@ class _PlanScreenState extends State<PlanScreen> {
             ),
             onTap: () {},
             trailing: IconButton(
-              onPressed: () {},
+              onPressed: () => _showDeletePlanDialog(index),
               icon: const Icon(Icons.delete, color: Colors.redAccent),
             ),
           ),
+        );
+      },
+    );
+  }
+
+  void _showDeletePlanDialog(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return DeleteDialog(
+          title: "Eliminar Plan",
+          content: "Está seguro de eliminar el plan?",
+          onDelete: () {
+            setState(() {
+              _plans.removeAt(index);
+            });
+          },
         );
       },
     );
