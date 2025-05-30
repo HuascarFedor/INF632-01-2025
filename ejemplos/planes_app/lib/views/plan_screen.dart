@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:planes_app/views/widgets/add_dialog.dart';
-import 'package:planes_app/views/widgets/delete_dialog.dart';
+import 'package:provider/provider.dart';
+
+import 'mixins/scroll_to_last_item_mixin.dart';
+import 'widgets/add_dialog.dart';
+import 'widgets/delete_dialog.dart';
 import '../models/plan.dart';
+import '../providers/plan_notifier.dart';
 
 class PlanScreen extends StatefulWidget {
   const PlanScreen({super.key});
@@ -10,14 +14,24 @@ class PlanScreen extends StatefulWidget {
   State<PlanScreen> createState() => _PlanScreenState();
 }
 
-class _PlanScreenState extends State<PlanScreen> {
-  final List<Plan> _plans = [];
+class _PlanScreenState extends State<PlanScreen> with ScrollToLastItemMixin {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  ScrollController get scrollController => _scrollController;
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final planNotifier = Provider.of<PlanNotifier>(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Manejo de Planes')),
-      body: _buildList(),
+      body: _buildList(planNotifier),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddPlanDialog(),
         tooltip: 'Agregar Plan',
@@ -35,7 +49,12 @@ class _PlanScreenState extends State<PlanScreen> {
           decoration: "Nombre del plan",
           onAdd: (String text) {
             setState(() {
-              _plans.add(Plan(name: text));
+              final planNotifier = Provider.of<PlanNotifier>(
+                context,
+                listen: false,
+              );
+              planNotifier.addPlan(text);
+              scrollToLastItem();
             });
           },
         );
@@ -43,11 +62,12 @@ class _PlanScreenState extends State<PlanScreen> {
     );
   }
 
-  Widget _buildList() {
+  Widget _buildList(PlanNotifier planNotifier) {
     return ListView.builder(
-      itemCount: _plans.length,
+      controller: scrollController,
+      itemCount: planNotifier.plansCount,
       itemBuilder: (context, index) {
-        final plan = _plans[index];
+        final plan = planNotifier.plans[index];
         return Container(
           margin: const EdgeInsets.all(8.0),
           padding: const EdgeInsets.all(8.0),
@@ -66,7 +86,7 @@ class _PlanScreenState extends State<PlanScreen> {
             ),
             onTap: () {},
             trailing: IconButton(
-              onPressed: () => _showDeletePlanDialog(index),
+              onPressed: () => _showDeletePlanDialog(planNotifier, plan),
               icon: const Icon(Icons.delete, color: Colors.redAccent),
             ),
           ),
@@ -75,7 +95,7 @@ class _PlanScreenState extends State<PlanScreen> {
     );
   }
 
-  void _showDeletePlanDialog(int index) {
+  void _showDeletePlanDialog(PlanNotifier planNotifier, Plan plan) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -84,7 +104,7 @@ class _PlanScreenState extends State<PlanScreen> {
           content: "Está seguro de eliminar el plan?",
           onDelete: () {
             setState(() {
-              _plans.removeAt(index);
+              planNotifier.deletePlan(plan);
             });
           },
         );

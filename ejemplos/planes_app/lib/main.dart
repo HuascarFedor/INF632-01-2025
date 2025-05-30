@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'views/plan_screen.dart';
+import 'controllers/plan_controller.dart';
+import 'providers/plan_notifier.dart';
 
 void main() => runApp(const PlanApp());
 
@@ -8,9 +12,12 @@ class PlanApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: PlanScreen(),
+    return ChangeNotifierProvider(
+      create: (_) => PlanNotifier(PlanController()),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: PlanScreen(),
+      ),
     );
   }
 }
