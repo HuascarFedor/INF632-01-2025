@@ -54,6 +54,11 @@ class _PlanScreenState extends State<PlanScreen> with ScrollToLastItemMixin {
                 listen: false,
               );
               planNotifier.addPlan(text);
+              if (planNotifier.errorMessage != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(planNotifier.errorMessage!)),
+                );
+              }
               scrollToLastItem();
             });
           },
@@ -63,6 +68,12 @@ class _PlanScreenState extends State<PlanScreen> with ScrollToLastItemMixin {
   }
 
   Widget _buildList(PlanNotifier planNotifier) {
+    if (planNotifier.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (planNotifier.plans.isEmpty) {
+      return const Center(child: Text("No hay planes para mostrar"));
+    }
     return ListView.builder(
       controller: scrollController,
       itemCount: planNotifier.plansCount,
@@ -105,6 +116,11 @@ class _PlanScreenState extends State<PlanScreen> with ScrollToLastItemMixin {
           onDelete: () {
             setState(() {
               planNotifier.deletePlan(plan);
+              if (planNotifier.errorMessage != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(planNotifier.errorMessage!)),
+                );
+              }
             });
           },
         );
