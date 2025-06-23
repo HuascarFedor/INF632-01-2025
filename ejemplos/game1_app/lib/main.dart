@@ -5,6 +5,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -44,6 +45,12 @@ class TapTheBoxGame extends FlameGame with TapDetector {
     final touchPoint = info.eventPosition.global;
     if (box.toRect().contains(touchPoint.toOffset())) {
       score++;
+
+      box.boxColor = Color(
+        (Random().nextDouble() * 0xFFFFFF).toInt(),
+      ).withAlpha(255);
+
+      FlameAudio.play('tap.mp3');
 
       final newPosition = _randomPosition();
       box.add(
