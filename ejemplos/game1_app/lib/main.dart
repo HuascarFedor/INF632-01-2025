@@ -53,10 +53,23 @@ class TapTheBoxGame extends FlameGame with TapDetector {
       FlameAudio.play('tap.mp3');
 
       final newPosition = _randomPosition();
+
       box.add(
         MoveEffect.to(
           newPosition,
           EffectController(duration: 0.5, curve: Curves.easeInOut),
+        ),
+      );
+
+      box.add(
+        ScaleEffect.by(
+          Vector2.all(0.7),
+          EffectController(
+            duration: 0.1,
+            reverseDuration: 0.1,
+            repeatCount: 1,
+            alternate: true,
+          ),
         ),
       );
 
